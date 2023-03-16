@@ -8,7 +8,7 @@ resource "digitalocean_droplet" "digital-1" {
   size       = "s-1vcpu-1gb"
   monitoring = false
   ssh_keys = [
-    data.digitalocean_ssh_key.office.id,
+    # data.digitalocean_ssh_key.office.id,
     data.digitalocean_ssh_key.ed.id
   ]
   # user_data = <<-EOF
