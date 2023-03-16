@@ -15,8 +15,6 @@ terraform {
   }
 }
 
-variable "do_token" {}
-# variable "pvt_key" {}
 
 # Configure the DigitalOcean Provider
 provider "digitalocean" {
