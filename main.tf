@@ -1,31 +1,34 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-provider "aws" {
-  region = var.region
-}
+resource "digitalocean_droplet" "digital-1" {
+  image      = "128792213" //nixos-image
+  name       = "digital-1"
+  region     = "sgp1"
+  size       = "s-1vcpu-1gb"
+  monitoring = false
+  ssh_keys = [
+    data.digitalocean_ssh_key.office.id,
+    data.digitalocean_ssh_key.ed.id
+  ]
+  # user_data = <<-EOF
+  #       #cloud-config
+  #       runcmd:
+  #         - curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-22.05 bash -x
+  #       EOF
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
+  # connection {
+  #   host        = self.ipv4_address
+  #   user        = "root"
+  #   type        = "ssh"
+  #   # agent       = true
+  #   private_key = file("./id_ed25519")
+  #   timeout     = "2m"
+  # }
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
-}
-
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = var.instance_name
-  }
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-22.11 bash -x"
+  #   ]
+  # }
 }
