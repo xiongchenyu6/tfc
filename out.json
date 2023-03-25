@@ -1,0 +1,17 @@
+{
+  "ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "159.223.40.79"
+  },
+  "ssh_public_fingerprint": {
+    "sensitive": false,
+    "type": "string",
+    "value": "d6:56:29:a6:14:0c:fa:b5:f2:ce:93:b2:a5:5f:1f:d0"
+  },
+  "ssh_public_key": {
+    "sensitive": false,
+    "type": "string",
+    "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8bS1HJ87Cjy4/7KehxtJqu7ZNzx3QByJ5BsLvgdwHMjSoxCVc8kThF+/7bicTwp2JyPSNPaDb9YWOujIOU2isI/Wmhw8OXZg2mA2fxPiXt6gmbkB21PHF5FDzL0tOyrNdDv2/ntWDtJTHvTXh9LeFamI++wRdhShGexjndBUZMUunQoaj8GUynLRWjEOAMiF1l/1dfOVwY9JzHAeOd2whbZEfeZ4ZldQRDFbPV7rTdscbHZ1rt30I15sCftuW58eJk4Hv78Hw1zjSg0VtvffFoEhFpShsR/mRA9XhByCXdh+jnEQcByDS3HP9De8XTT4c0DEnHsPgYG9u5f2sRXTP openpgp:0x49EC46CE"
+  }
+}
