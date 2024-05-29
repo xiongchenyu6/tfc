@@ -10,7 +10,7 @@ terraform {
   required_providers {
     digitalocean = {
       source = "digitalocean/digitalocean"
-      version = "2.26.0"
+      version = "2.39.0"
     }
   }
 }
@@ -20,10 +20,7 @@ terraform {
 provider "digitalocean" {
   token = var.do_token
 }
-data "digitalocean_ssh_key" "office" {
-  name = "office"
-}
 
-data "digitalocean_ssh_key" "ed" {
-  name = "ed"
+data "digitalocean_ssh_key" "freeman" {
+  name = "freeman"
 }
