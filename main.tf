@@ -14,7 +14,7 @@ resource "digitalocean_droplet" "digital-1" {
   user_data = <<EOT
   #cloud-config
   runcmd:
-    - curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-24.05 bash -x
+    - curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-23.11 bash -x
   EOT
 }
 
