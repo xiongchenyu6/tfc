@@ -3,7 +3,7 @@
 
 resource "digitalocean_droplet" "digital-1" {
   #  image      = "128792213" //nixos-image
-  image  = "debian-11-x64"
+  image  = "ubuntu-22-04-x64"
   name       = "digital-1"
   region     = "sgp1"
   size       = "s-1vcpu-1gb"
@@ -14,7 +14,6 @@ resource "digitalocean_droplet" "digital-1" {
   user_data = <<EOT
   #cloud-config
   runcmd:
-    - curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-23.11 bash -x
+    - export doNetConf=y  | curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect |  NIX_CHANNEL=nixos-24.05 PROVIDER=digitalocean doNetConf=y bash -x
   EOT
 }
-
