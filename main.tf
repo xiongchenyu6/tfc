@@ -7,14 +7,14 @@ resource "digitalocean_droplet" "digital-1" {
   name       = "digital-1"
   region     = "sgp1"
   size       = "s-1vcpu-1gb"
-  monitoring = false
+  monitoring = true
   ssh_keys = [
     data.digitalocean_ssh_key.freeman.id,
   ]
   user_data = <<EOT
   #cloud-config
   runcmd:
-    - curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-24.11 bash -x
+    - curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-24.05 bash -x
   EOT
 }
 
