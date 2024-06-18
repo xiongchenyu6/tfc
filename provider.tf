@@ -10,7 +10,12 @@ terraform {
   required_providers {
     digitalocean = {
       source = "digitalocean/digitalocean"
-      version = "2.39.0"
+      version = "~> 2.0"
+    }
+    cloudflare = {
+      source = "cloudflare/cloudflare"
+      version = "~> 4.0"
+
     }
   }
 }
@@ -23,4 +28,8 @@ provider "digitalocean" {
 
 data "digitalocean_ssh_key" "freeman" {
   name = "freeman"
+}
+
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
 }
