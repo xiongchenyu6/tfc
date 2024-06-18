@@ -30,3 +30,11 @@ resource "cloudflare_record" "vr_autolife" {
   proxied   = false
   ttl     = 3600
 }
+
+resource "cloudflare_record" "authentik_autolife" {
+  zone_id = cloudflare_zone.autolife.id
+  name    = "authentik"
+  value   = "159.65.8.132"
+  type    = "A"
+  ttl     = 3600
+}
