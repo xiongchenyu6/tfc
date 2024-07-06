@@ -7,13 +7,15 @@ resource "digitalocean_droplet" "digital-0" {
   region     = "sgp1"
   size       = "s-1vcpu-1gb"
   monitoring = true
+  ipv6 = true
+  tags = ["authentik"]
   ssh_keys = [
     data.digitalocean_ssh_key.freeman.id,
   ]
   user_data = <<EOT
   #cloud-config
   runcmd:
-    - export doNetConf=y  | curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect |  NIX_CHANNEL=nixos-24.05 PROVIDER=digitalocean doNetConf=y bash -x
+    - export doNetConf=y | curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect |  NIX_CHANNEL=nixos-24.05 PROVIDER=digitalocean doNetConf=y bash -x
   EOT
 }
 
