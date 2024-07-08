@@ -38,6 +38,15 @@ resource "cloudflare_record" "authentik_autolife" {
   name    = "authentik"
   value   = "206.189.156.130"
   type    = "A"
-  proxied = false
-  ttl     = 3600
+  proxied = true
+  ttl     = 1
+}
+
+resource "cloudflare_record" "netbird_autolife" {
+  zone_id = cloudflare_zone.autolife.id
+  name    = "netbird"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = true
+  ttl     = 1
 }
