@@ -1,4 +1,4 @@
-# Copyright (c) HashiCorp, Inc.
+# Copyright (c) HashiCorp,p Inc.
 # SPDX-License-Identifier: MPL-2.0
 
 resource "digitalocean_droplet" "digital-0" {
@@ -33,20 +33,20 @@ resource "cloudflare_record" "vr_autolife" {
   ttl     = 3600
 }
 
-resource "cloudflare_record" "authentik_autolife" {
-  zone_id = cloudflare_zone.autolife.id
-  name    = "authentik"
-  value   = "206.189.156.130"
-  type    = "A"
-  proxied = true
-  ttl     = 1
-}
-
 resource "cloudflare_record" "netbird_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "netbird"
   value   = "167.172.91.53"
   type    = "A"
-  proxied = true
+  proxied = false
+  ttl     = 1
+}
+
+resource "cloudflare_record" "vr_sg_autolife" {
+  zone_id = cloudflare_zone.autolife.id
+  name    = "vr-sg"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = false
   ttl     = 1
 }
