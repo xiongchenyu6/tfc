@@ -50,3 +50,12 @@ resource "cloudflare_record" "vr_sg_autolife" {
   proxied = false
   ttl     = 1
 }
+
+resource "cloudflare_record" "vr_sg_autolife" {
+  zone_id = cloudflare_zone.autolife.id
+  name    = "robot-match"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = false
+  ttl     = 1
+}
