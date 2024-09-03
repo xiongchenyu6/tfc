@@ -24,6 +24,11 @@ resource "cloudflare_zone" "autolife" {
   zone       = "autolife-robotics.me"
 }
 
+# resource "cloudflare_zone" "autolife-ai" {
+#   account_id = "9dcccca5dd36961792570374be029ae4"
+#   zone       = "autolife.ai"
+# }
+
 resource "cloudflare_record" "vr_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "vr"
@@ -51,11 +56,47 @@ resource "cloudflare_record" "vr_sg_autolife" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "vr_sg_autolife" {
+resource "cloudflare_record" "robot_match_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "robot-match"
   value   = "167.172.91.53"
   type    = "A"
   proxied = false
+  ttl     = 1
+}
+
+resource "cloudflare_record" "www_autolife" {
+  zone_id = cloudflare_zone.autolife.id
+  name    = "www"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = true
+  ttl     = 1
+}
+
+resource "cloudflare_record" "mainpage_autolife" {
+  zone_id = cloudflare_zone.autolife.id
+  name    = "autolife-robotics.me"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = true
+  ttl     = 1
+}
+
+resource "cloudflare_record" "mainpage_autolife_ai" {
+  zone_id = "effd528990cab2cbfbce7bd9c1590a8d"
+  name    = "autolife.ai"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = true
+  ttl     = 1
+}
+
+resource "cloudflare_record" "www_mainpage_autolife_ai" {
+  zone_id = "effd528990cab2cbfbce7bd9c1590a8d"
+  name    = "www"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = true
   ttl     = 1
 }
