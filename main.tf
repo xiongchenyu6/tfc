@@ -32,7 +32,7 @@ resource "cloudflare_zone" "autolife" {
 resource "cloudflare_record" "vr_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "vr"
-  value   = "14.154.194.93"
+  value   = "14.154.190.192"
   type    = "A"
   proxied   = false
   ttl     = 3600
