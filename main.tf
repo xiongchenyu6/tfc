@@ -47,9 +47,27 @@ resource "cloudflare_record" "netbird_autolife" {
   ttl     = 1
 }
 
+resource "cloudflare_record" "frp_dashboard_autolife" {
+  zone_id = cloudflare_zone.autolife.id
+  name    = "frp-dashboard"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = false
+  ttl     = 1
+}
+
 resource "cloudflare_record" "vr_sg_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "vr-sg"
+  value   = "167.172.91.53"
+  type    = "A"
+  proxied = false
+  ttl     = 1
+}
+
+resource "cloudflare_record" "vr_sg_udp_autolife" {
+  zone_id = cloudflare_zone.autolife.id
+  name    = "vr-sg-udp"
   value   = "167.172.91.53"
   type    = "A"
   proxied = false
