@@ -15,7 +15,7 @@ resource "digitalocean_droplet" "digital-0" {
   user_data = <<EOT
   #cloud-config
   runcmd:
-    - export doNetConf=y | curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect |  NIX_CHANNEL=nixos-24.05 PROVIDER=digitalocean doNetConf=y bash -x
+    - export doNetConf=y | curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect |  NIX_CHANNEL=nixos-24.11 PROVIDER=digitalocean doNetConf=y bash -x
   EOT
 }
 
@@ -41,7 +41,7 @@ resource "cloudflare_record" "vr_autolife" {
 resource "cloudflare_record" "netbird_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "netbird"
-  value   = "167.172.91.53"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = false
   ttl     = 1
@@ -50,16 +50,17 @@ resource "cloudflare_record" "netbird_autolife" {
 resource "cloudflare_record" "frp_dashboard_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "frp-dashboard"
-  value   = "167.172.91.53"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = false
   ttl     = 1
 }
 
-resource "cloudflare_record" "vr_sg_autolife" {
+
+resource "cloudflare_record" "vr_sg_udp_autolife" {
   zone_id = cloudflare_zone.autolife.id
-  name    = "vr-sg"
-  value   = "167.172.91.53"
+  name    = "vr-sg-udp"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = false
   ttl     = 1
@@ -68,7 +69,7 @@ resource "cloudflare_record" "vr_sg_autolife" {
 resource "cloudflare_record" "vr_sg_udp_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "vr-sg-udp"
-  value   = "167.172.91.53"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = false
   ttl     = 1
@@ -77,7 +78,7 @@ resource "cloudflare_record" "vr_sg_udp_autolife" {
 resource "cloudflare_record" "robot_match_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "robot-match"
-  value   = "167.172.91.53"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = false
   ttl     = 1
@@ -86,7 +87,7 @@ resource "cloudflare_record" "robot_match_autolife" {
 resource "cloudflare_record" "www_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "www"
-  value   = "167.172.91.53"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = true
   ttl     = 1
@@ -95,7 +96,7 @@ resource "cloudflare_record" "www_autolife" {
 resource "cloudflare_record" "mainpage_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "autolife-robotics.me"
-  value   = "167.172.91.53"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = true
   ttl     = 1
@@ -104,7 +105,7 @@ resource "cloudflare_record" "mainpage_autolife" {
 resource "cloudflare_record" "mainpage_autolife_ai" {
   zone_id = "effd528990cab2cbfbce7bd9c1590a8d"
   name    = "autolife.ai"
-  value   = "167.172.91.53"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = true
   ttl     = 1
@@ -113,7 +114,7 @@ resource "cloudflare_record" "mainpage_autolife_ai" {
 resource "cloudflare_record" "www_mainpage_autolife_ai" {
   zone_id = "effd528990cab2cbfbce7bd9c1590a8d"
   name    = "www"
-  value   = "167.172.91.53"
+  value   = "43.199.189.188"
   type    = "A"
   proxied = true
   ttl     = 1
