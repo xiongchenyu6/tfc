@@ -5,10 +5,10 @@
 # For more information, see https://www.terraform.io/docs/backends/types/remote.html
 terraform {
   cloud {
-    organization = "freeman-engineer"
+    organization = "autolife-robotics"
 
     workspaces {
-      name = "digitalocean"
+      name = "tfc"
     }
   }
 

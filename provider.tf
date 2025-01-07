@@ -14,7 +14,7 @@ terraform {
     }
     cloudflare = {
       source = "cloudflare/cloudflare"
-      version = "~> 4.0"
+      version = "5.0.0-alpha1"
 
     }
   }
@@ -22,13 +22,13 @@ terraform {
 
 
 # Configure the DigitalOcean Provider
-provider "digitalocean" {
-  token = var.do_token
-}
+# provider "digitalocean" {
+#   token = var.do_token
+# }
 
-data "digitalocean_ssh_key" "freeman" {
-  name = "freeman"
-}
+# data "digitalocean_ssh_key" "freeman" {
+#   name = "freeman"
+# }
 
 provider "cloudflare" {
   api_token = var.cloudflare_api_token

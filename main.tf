@@ -20,97 +20,84 @@
 # }
 
 resource "cloudflare_zone" "autolife" {
-  account_id = "2764ae0fd9a5cb92c9ac67708620e54c"
-  zone       = "autolife-robotics.me"
+  account = {
+   id = "2764ae0fd9a5cb92c9ac67708620e54c" 
+  }
+  name      = "autolife-robotics.me"
 }
+
 resource "cloudflare_zone" "autolife-tech" {
-  account_id = "2764ae0fd9a5cb92c9ac67708620e54c"
-  zone       = "auto-life.tech"
+  account = {
+   id = "2764ae0fd9a5cb92c9ac67708620e54c" 
+  }
+  name       = "auto-life.tech"
 }
 
 resource "cloudflare_zone" "autolife-ai" {
-  account_id = "2764ae0fd9a5cb92c9ac67708620e54c"
-  zone       = "autolife.ai"
+  account = {
+   id = "2764ae0fd9a5cb92c9ac67708620e54c" 
+  }
+  name       = "autolife.ai"
 }
 
-resource "cloudflare_record" "vr_autolife" {
-  zone_id = cloudflare_zone.autolife.id
-  name    = "vr"
-  value   = "101.126.131.81"
+resource "cloudflare_dns_record" "mail-www" {
+  zone_id = cloudflare_zone.autolife-tech.id
+  name    = "auto-life.tech"
+  content   = "43.156.66.157" # huoshan cloud
   type    = "A"
   proxied   = false
   ttl     = 1
 }
 
-resource "cloudflare_record" "netbird_autolife" {
+resource "cloudflare_dns_record" "netbird_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "netbird"
-  value   = "43.198.90.76"
+  content   = "18.163.206.49"
   type    = "A"
   proxied = false
   ttl     = 1
 }
 
-resource "cloudflare_record" "frp_dashboard_autolife" {
+resource "cloudflare_dns_record" "frp_dashboard_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "frp-dashboard"
-  value   = "43.198.90.76"
+  content   = "18.163.206.49"
   type    = "A"
   proxied = false
   ttl     = 1
 }
 
-
-resource "cloudflare_record" "vr_sg_autolife" {
+resource "cloudflare_dns_record" "vr_sg_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "vr-sg"
-  value   = "43.198.90.76"
+  content   = "18.163.206.49"
   type    = "A"
   proxied = false
   ttl     = 1
 }
 
-
-resource "cloudflare_record" "mngt_autolife" {
+resource "cloudflare_dns_record" "mngt_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "mngt"
-  value   = "43.198.90.76"
+  content   = "18.163.206.49"
   type    = "A"
   proxied = false
   ttl     = 1
 }
 
-resource "cloudflare_record" "www_autolife" {
+resource "cloudflare_dns_record" "www_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "www"
-  value   = "43.198.90.76"
+  content   = "18.163.206.49"
   type    = "A"
   proxied = true
   ttl     = 1
 }
 
-resource "cloudflare_record" "mainpage_autolife" {
+resource "cloudflare_dns_record" "mainpage_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "autolife-robotics.me"
-  value   = "43.198.90.76"
-  type    = "A"
-  proxied = true
-  ttl     = 1
-}
-
-resource "cloudflare_record" "mainpage_autolife_ai" {
-  zone_id = "effd528990cab2cbfbce7bd9c1590a8d"
-  name    = "autolife.ai"
-  value   = "www-6qq.pages.dev"
-  type    = "CNAME"
-  proxied = true
-  ttl     = 1
-}
-
-resource "cloudflare_record" "www_mainpage_autolife_ai" {
-  zone_id = "effd528990cab2cbfbce7bd9c1590a8d"
-  name    = "www"
-  value   = "www-6qq.pages.dev"
+  content   = "18.163.206.49"
   type    = "A"
   proxied = true
   ttl     = 1
