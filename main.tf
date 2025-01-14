@@ -52,7 +52,7 @@ resource "cloudflare_dns_record" "mail-www" {
 resource "cloudflare_dns_record" "netbird_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "netbird"
-  content   = "18.163.206.49"
+  content   = "18.141.239.27"
   type    = "A"
   proxied = false
   ttl     = 1
@@ -61,7 +61,7 @@ resource "cloudflare_dns_record" "netbird_autolife" {
 resource "cloudflare_dns_record" "frp_dashboard_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "frp-dashboard"
-  content   = "18.163.206.49"
+  content   = "18.141.239.27"
   type    = "A"
   proxied = false
   ttl     = 1
@@ -70,7 +70,7 @@ resource "cloudflare_dns_record" "frp_dashboard_autolife" {
 resource "cloudflare_dns_record" "vr_sg_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "vr-sg"
-  content   = "18.163.206.49"
+  content   = "18.141.239.27"
   type    = "A"
   proxied = false
   ttl     = 1
@@ -79,7 +79,7 @@ resource "cloudflare_dns_record" "vr_sg_autolife" {
 resource "cloudflare_dns_record" "mngt_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "mngt"
-  content   = "18.163.206.49"
+  content   = "18.141.239.27"
   type    = "A"
   proxied = false
   ttl     = 1
@@ -88,7 +88,7 @@ resource "cloudflare_dns_record" "mngt_autolife" {
 resource "cloudflare_dns_record" "www_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "www"
-  content   = "18.163.206.49"
+  content   = "18.141.239.27"
   type    = "A"
   proxied = true
   ttl     = 1
@@ -97,7 +97,7 @@ resource "cloudflare_dns_record" "www_autolife" {
 resource "cloudflare_dns_record" "mainpage_autolife" {
   zone_id = cloudflare_zone.autolife.id
   name    = "autolife-robotics.me"
-  content   = "18.163.206.49"
+  content   = "18.141.239.27"
   type    = "A"
   proxied = true
   ttl     = 1
